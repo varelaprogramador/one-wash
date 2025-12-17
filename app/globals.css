@@ -1,8 +1,43 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================
+   THEME VARIABLES
+   ============================================ */
+
 :root {
+  --orange-primary: #f97316;
+  --orange-dark: #ea580c;
+  --orange-light: #fb923c;
+}
+
+/* Light Theme */
+html.light {
   --background: #ffffff;
-  --foreground: #171717;
+  --background-secondary: #f4f4f5;
+  --background-tertiary: #e4e4e7;
+  --foreground: #18181b;
+  --foreground-secondary: #3f3f46;
+  --foreground-muted: #71717a;
+  --border: #e4e4e7;
+  --border-secondary: #d4d4d8;
+  --card-bg: #ffffff;
+  --card-bg-hover: #f4f4f5;
+}
+
+/* Dark Theme (default) */
+html.dark {
+  --background: #09090b;
+  --background-secondary: #18181b;
+  --background-tertiary: #27272a;
+  --foreground: #fafafa;
+  --foreground-secondary: #a1a1aa;
+  --foreground-muted: #71717a;
+  --border: #27272a;
+  --border-secondary: #3f3f46;
+  --card-bg: #18181b;
+  --card-bg-hover: #27272a;
 }
 
 @theme inline {
@@ -12,15 +47,126 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--orange-primary), var(--orange-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-orange {
+  box-shadow: 0 0 40px -10px rgba(249, 115, 22, 0.4);
+}
+
+.glass {
+  backdrop-filter: blur(20px);
+}
+
+html.dark .glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.light .glass {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* ============================================
+   SELECTION & FOCUS
+   ============================================ */
+
+::selection { background: rgba(249, 115, 22, 0.3); color: inherit; }
+
+:focus-visible { outline: 2px solid var(--orange-primary); outline-offset: 2px; }
+
+/* ============================================
+   BASE ELEMENTS
+   ============================================ */
+
+a { text-decoration: none; transition: color 0.2s ease; }
+img { max-width: 100%; height: auto; }
+
+.container { width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto; }
+
+/* ============================================
+   THEME-AWARE BACKGROUNDS
+   ============================================ */
+
+.bg-theme-primary {
+  background-color: var(--background);
+}
+
+.bg-theme-secondary {
+  background-color: var(--background-secondary);
+}
+
+.bg-theme-tertiary {
+  background-color: var(--background-tertiary);
+}
+
+.text-theme-primary {
+  color: var(--foreground);
+}
+
+.text-theme-secondary {
+  color: var(--foreground-secondary);
+}
+
+.text-theme-muted {
+  color: var(--foreground-muted);
+}
+
+.border-theme {
+  border-color: var(--border);
+}
+
+.card-theme {
+  background-color: var(--card-bg);
+  border-color: var(--border);
+}
+
+.card-theme:hover {
+  background-color: var(--card-bg-hover);
 }

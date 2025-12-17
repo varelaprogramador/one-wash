@@ -1,0 +1,10 @@
+export { HeroSection } from "./hero";
+export { ProcessSection } from "./process";
+export { ServicesSection } from "./services";
+export { AdvantagesSection } from "./advantages";
+export { DifferentialsSection } from "./differentials";
+export { FranchiseSection } from "./franchise";
+export { SocialProofSection } from "./social-proof";
+export { CTAFinalSection } from "./cta-final";
+export { Header } from "./header";
+export { Footer } from "./footer";
