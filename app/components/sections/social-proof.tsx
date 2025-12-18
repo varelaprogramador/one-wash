@@ -134,7 +134,7 @@ interface TestimonialsCarouselProps {
 function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const autoPlayRef = useRef<NodeJS.Timeout>();
+  const autoPlayRef = useRef<NodeJS.Timeout>(undefined);
 
   const slideVariants = {
     enter: (direction: number) => ({
