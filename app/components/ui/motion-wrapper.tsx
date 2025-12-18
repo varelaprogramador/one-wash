@@ -65,7 +65,7 @@ const animationMap: Record<AnimationType, Variants> = {
 
 export function MotionWrapper({
   children,
-  animation = "fadeIn",
+  animation = "fade",
   variants,
   delay = 0,
   staggerIndex,
