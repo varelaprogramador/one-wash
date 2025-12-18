@@ -58,35 +58,63 @@ export function Footer() {
           <div className="lg:col-span-2">
             <ScrollReveal direction="up">
               {/* Logo */}
-              <div className="flex items-center gap-2 mb-6">
-                <motion.div
-                  whileHover={{ rotate: 15 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="text-white"
-                  >
-                    <circle cx="12" cy="12" r="3" fill="currentColor" />
-                    <path
-                      d="M12 5V9M12 15V19M5 12H9M15 12H19"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <circle cx="5" cy="5" r="2" fill="currentColor" opacity="0.5" />
-                    <circle cx="19" cy="5" r="2" fill="currentColor" opacity="0.5" />
-                    <circle cx="5" cy="19" r="2" fill="currentColor" opacity="0.5" />
-                    <circle cx="19" cy="19" r="2" fill="currentColor" opacity="0.5" />
-                  </svg>
-                </motion.div>
-                <div>
-                  <span className="text-xl font-bold dark:text-white text-zinc-900 tracking-tight">
-                    ONE<span className="text-orange-500">WASH</span>
+              <div className="mb-6">
+                <div className="flex flex-col items-start">
+                  {/* Main logo row: ONE + Drone + WASH */}
+                  <div className="flex items-center gap-1">
+                    {/* ONE text */}
+                    <span className="text-xl sm:text-2xl font-black dark:text-white text-zinc-900 tracking-tight">
+                      ONE
+                    </span>
+
+                    {/* Drone icon */}
+                    <motion.div
+                      whileHover={{ rotate: 15, scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="mx-1"
+                    >
+                      <svg
+                        width="32"
+                        height="32"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        className="text-orange-500"
+                      >
+                        {/* Drone body */}
+                        <rect x="14" y="16" width="12" height="8" rx="2" fill="currentColor" />
+
+                        {/* Arms */}
+                        <line x1="14" y1="17" x2="6" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                        <line x1="26" y1="17" x2="34" y2="9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                        <line x1="14" y1="23" x2="6" y2="31" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                        <line x1="26" y1="23" x2="34" y2="31" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+
+                        {/* Propellers (blur effect) */}
+                        <ellipse cx="6" cy="9" rx="5" ry="2" fill="currentColor" opacity="0.4" />
+                        <ellipse cx="34" cy="9" rx="5" ry="2" fill="currentColor" opacity="0.4" />
+                        <ellipse cx="6" cy="31" rx="5" ry="2" fill="currentColor" opacity="0.4" />
+                        <ellipse cx="34" cy="31" rx="5" ry="2" fill="currentColor" opacity="0.4" />
+
+                        {/* Motor hubs */}
+                        <circle cx="6" cy="9" r="2" className="dark:fill-zinc-800 fill-zinc-300" />
+                        <circle cx="34" cy="9" r="2" className="dark:fill-zinc-800 fill-zinc-300" />
+                        <circle cx="6" cy="31" r="2" className="dark:fill-zinc-800 fill-zinc-300" />
+                        <circle cx="34" cy="31" r="2" className="dark:fill-zinc-800 fill-zinc-300" />
+
+                        {/* Camera */}
+                        <circle cx="20" cy="26" r="2" className="dark:fill-zinc-700 fill-zinc-400" />
+                      </svg>
+                    </motion.div>
+
+                    {/* WASH text */}
+                    <span className="text-xl sm:text-2xl font-black text-orange-500 tracking-tight">
+                      WASH
+                    </span>
+                  </div>
+
+                  {/* Slogan */}
+                  <span className="text-[8px] sm:text-[9px] font-bold dark:text-zinc-400 text-zinc-500 uppercase tracking-[0.2em] mt-0.5">
+                    A Numero 1 do Brasil
                   </span>
                 </div>
               </div>

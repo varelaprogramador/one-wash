@@ -28,14 +28,7 @@ export function HeroSection() {
           animate="visible"
           className="max-w-4xl mx-auto text-center"
         >
-          {/* Badge */}
-          <motion.div
-            variants={slideUpVariants}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full dark:bg-orange-500/10 bg-orange-500/15 border border-orange-500/20 dark:text-orange-400 text-orange-600 text-sm font-medium mb-8"
-          >
-            <Zap className="w-4 h-4" />
-            <span>Tecnologia de Ponta em Limpeza</span>
-          </motion.div>
+
 
           {/* Headline */}
           <motion.h1
